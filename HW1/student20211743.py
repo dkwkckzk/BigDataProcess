@@ -2,6 +2,7 @@
 
 from openpyxl import load_workbook
 
+
 # 엑셀 파일 불러오기
 wb = load_workbook('student.xlsx')  # 실제 파일 경로와 이름 입력
 ws = wb.active
@@ -34,7 +35,7 @@ for rank, (total2, i) in enumerate(sorted_totals):
     else:
         grade = 'C0' 
         for limit, g in zip(grades_limits, grades):
-            if rank < limit:
+            if rank <= limit:
                 grade = g
                 break
 
