@@ -24,18 +24,28 @@ sorted_totals=sorted(totals,key=lambda x:x[0],reverse=True)
 # totals 정렬할건데 key값은 첫번째 자리에 있는 총점을 기준으로 하고, 거꾸로 즉 내림차순으로 정렬해줘
 
 #grades_limits = [int(num_students*x)-1 for x in [0.15, 0.30, 0.55, 0.70, 0.85, 1]]
-grades_limits = [round(num_students*x)-1 for x in [0.15, 0.30, 0.50, 0.70, 0.85, 1]]
-# 각 비율에 해당하는 학생수 저장
+#grades_limits = [round(num_students*x)-1 for x in [0.15, 0.30, 0.50, 0.70, 0.85, 1]]
+grades_limits = [round(num_students*x) for x in [0.15, 0.30, 0.50, 0.70, 0.85, 1]]
+# 각 비율에 해당하는 학생수 저장이기는 한데 이게 맞나...?
 
 grades = ['A+', 'A0', 'B+', 'B0', 'C+', 'C0']  # 등급 수정
 
+# for rank, (total2, i) in enumerate(sorted_totals): 
+#     if total2 < 40:
+#         grade = 'F'
+#     else:
+#         grade = 'C0' 
+#         for limit, g in zip(grades_limits, grades):
+#             if rank <= limit:
+#                 grade = g
+#                 break
+
 for rank, (total2, i) in enumerate(sorted_totals): 
     if total2 < 40:
-        grade = 'F'
+        grade = 'F'  # 40점 미만일 때 'F' 등급 부여
     else:
-        grade = 'C0' 
         for limit, g in zip(grades_limits, grades):
-            if rank <= limit:
+            if rank < limit:
                 grade = g
                 break
 
