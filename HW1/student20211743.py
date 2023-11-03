@@ -22,7 +22,8 @@ for i in range(1, len(data)): # 학생 수 만큼 돔
 sorted_totals=sorted(totals,key=lambda x:x[0],reverse=True)
 # totals 정렬할건데 key값은 첫번째 자리에 있는 총점을 기준으로 하고, 거꾸로 즉 내림차순으로 정렬해줘
 
-grades_limits = [int(num_students*x)-1 for x in [0.15, 0.30, 0.55, 0.70, 0.85, 1]]
+#grades_limits = [int(num_students*x)-1 for x in [0.15, 0.30, 0.55, 0.70, 0.85, 1]]
+grades_limits = [int(num_students*x)-1 for x in [0.15, 0.30, 0.50, 0.70, 0.85, 1]]
 # 각 비율에 해당하는 학생수 저장
 
 grades = ['A+', 'A0', 'B+', 'B0', 'C+', 'C0']  # 등급 수정
