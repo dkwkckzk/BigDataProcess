@@ -30,3 +30,5 @@ with open(input_file, 'r', encoding='utf-8') as f:
 with open(output_file, 'w', encoding='utf-8') as f:
     for genre, count in genre_dict.items():
         f.write("%s %d" % (genre, count))
+
+# 도대체 뭐가 문제일까요..???? 알 수가 없네요???? 단어찾기를해도 개수는 맞는데 어디에서 18개나 틀렸을까요??? 와아아아아아아
