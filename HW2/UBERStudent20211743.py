@@ -25,7 +25,7 @@ with open(input_file, 'r', encoding='utf-8') as f:
         vehicles = int(fields[2]) # 2: 차량
         trips = int(fields[3]) # 3: 운행된 수
         
-        # 날짜 문자열을 datetime 객체로 변환
+        # 날짜 문자열을 datetime 객체로 변환(검색후 발견)
         date = datetime.strptime(date_str, "%m/%d/%Y")
         
         # 요일 코드 생성
@@ -34,10 +34,10 @@ with open(input_file, 'r', encoding='utf-8') as f:
         
         # 지역과 요일을 키로 사용하여 데이터 저장
         key = "%s,%s" % (region, day)
-        if key in uber_dict:
+        if key in uber_dict: # 이미 존재한다면 +1
             uber_dict[key][0] += vehicles
             uber_dict[key][1] += trips
-        else:
+        else: # 없으면 삽입
             uber_dict[key] = [vehicles, trips]
 
 # 결과를 출력 파일에 쓰기
