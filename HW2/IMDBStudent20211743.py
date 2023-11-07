@@ -21,7 +21,7 @@ with open(input_file, 'r', encoding='utf-8') as f:
         fields = line.split('::') # '::' 기준으로 쪼개기 → 3개 나오는 걸 확인
         genres = fields[-1].split('|') # 마지막 필드(장르 정보)를 '|'로 쪼개기
         for genre in genres: # 각 장르에 대하여
-#            genre = genre.strip()
+            genre = genre.strip()
             if genre in genre_dict: # 사전 안에 있다면
                 genre_dict[genre] += 1 # +1 해주기
             else:
