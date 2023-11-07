@@ -8,8 +8,8 @@ if len(sys.argv) != 3:
     sys.exit()
 
 # 커맨드라인 인자에서 파일 이름 가져오기
-input_file = sys.argv[1] # movie.dat
-output_file = sys.argv[2] # movieoutput.txt
+input_file = sys.argv[1] 
+output_file = sys.argv[2] 
 
 # 장르별 영화 수를 저장할 사전 생성
 genre_dict = dict()
@@ -32,3 +32,4 @@ with open(output_file, 'w', encoding='utf-8') as f:
         f.write("%s %d" % (genre, count))
 
 # 도대체 뭐가 문제일까요..???? 알 수가 없네요???? 단어찾기를해도 개수는 맞는데 어디에서 18개나 틀렸을까요??? 와아아아아아아
+# 결과는 정상동작 하는데 뭐꼬..? 개수를 다시 
