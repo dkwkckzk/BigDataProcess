@@ -45,4 +45,3 @@ with open(output_file, 'w', encoding='utf-8') as f:
     for key, value in uber_dict.items():
        f.write("%s %d,%d\n" % (key, value[0], value[1]))
         
-# 너랑 쟤랑 똑같이 했는데 너는 왜 잘될까?????
