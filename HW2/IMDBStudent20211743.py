@@ -12,7 +12,7 @@ input_file = sys.argv[1]
 output_file = sys.argv[2] 
 
 # 장르별 영화 수를 저장할 사전 생성
-genre_dict = dict()
+genre_count = {}
 
 # 입력 파일 movie.dat 파일 열기
 with open(input_file, 'r', encoding='utf-8') as f:
@@ -22,17 +22,12 @@ with open(input_file, 'r', encoding='utf-8') as f:
         genres = fields[-1].split('|') # 마지막 필드(장르 정보)를 '|'로 쪼개기
         for genre in genres: # 각 장르에 대하여
             genre = genre.strip()
-            if genre in genre_dict: # 사전 안에 있다면
-                genre_dict[genre] += 1 # +1 해주기
+            if genre in genre_count: # 사전 안에 있다면
+                genre_count[genre] += 1 # +1 해주기
             else:
-                genre_dict[genre] = 1 # 없다면 넣기
+                genre_count[genre] = 1 # 없다면 넣기
 
 # 결과를 출력 movieoutput.txt로 저장
 with open(output_file, 'w', encoding='utf-8') as f:
-    for genre, count in genre_dict.items():
-        f.write("%s %d" % (genre, count))
-
-# 도대체 뭐가 문제일까요..???? 알 수가 없네요???? 단어찾기를해도 개수는 맞는데 어디에서 18개나 틀렸을까요??? 와아아아아아아
-# 결과는 정상동작 하는데 뭐꼬..? 개수를 다시.... 아닌데.... 한놈이 17개인데... 뭐지...????????
-# |이걸로 쪼개면 각각의 장르가 리스트에 저장이 되고, 그 리스트를 돌면서 사전에 값이 있는지 비교하고, 있으면 +1을 해주고 없으면 추가한다... 아닌가...?흠....
-# 장르가 더 있나...???
+    for genre, count in genre_count.items():
+        f.write("%s %d\n" % (genre, count))
