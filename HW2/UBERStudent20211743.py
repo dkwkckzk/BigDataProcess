@@ -32,7 +32,7 @@ with open(input_file, 'r', encoding='utf-8') as f:
         weekday = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN']
         day = weekday[date.weekday()]
         
-        # 지역과 요일을 키로 사용하여 데이터 저장
+        # 지역과 요일을 키로 사용하여 데이터 저장(이게 가능한지 몰랐었음)
         key = "%s,%s" % (region, day)
         if key in uber_dict: # 이미 존재한다면 +1
             uber_dict[key][0] += vehicles
