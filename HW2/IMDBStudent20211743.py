@@ -31,3 +31,4 @@ with open(input_file, 'r', encoding='utf-8') as f:
 with open(output_file, 'w', encoding='utf-8') as f:
     for genre, count in genre_count.items():
         f.write("%s %d\n" % (genre, count)) # 달리진점 → 양쪽 공백을 없애면서 개행이 사라졌고 따로 개행 작업을 해주어야 했다.
+# 아마 \n를 함으로써 데이터들 사이의 분리가 발생한것이 아닐까 추측중....
