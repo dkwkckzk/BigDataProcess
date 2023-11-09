@@ -38,7 +38,7 @@ with open(input_file, 'r', encoding='utf-8') as f:
             uber_dict[key][0] += vehicles
             uber_dict[key][1] += trips
         else: # 없으면 삽입
-            uber_dict[key] = [vehicles, trips]
+            uber_dict[key] = [vehicles, trips] # 값도 여러개 
 
 # 결과를 출력 파일에 쓰기
 with open(output_file, 'w', encoding='utf-8') as f:
