@@ -33,11 +33,11 @@ with open(input_file, 'r', encoding='utf-8') as f:
         day = weekday[date.weekday()]
         
         # 지역과 요일을 키로 사용하여 데이터 저장
-        key = "%s,%s" % (region, day)
-        if key in uber_dict:
+        key = "%s,%s" % (region, day) # 복합키 가능
+        if key in uber_dict: # 키에 해당하는 값이 있다면 증가 해주고
             uber_dict[key][0] += vehicles
             uber_dict[key][1] += trips
-        else:
+        else:# 키에 해당하는 값이 없다면 추가해라
             uber_dict[key] = [vehicles, trips]
 
 # 결과를 출력 파일에 쓰기
