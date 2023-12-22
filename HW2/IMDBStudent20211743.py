@@ -8,11 +8,11 @@ if len(sys.argv) != 3:
     sys.exit()
 
 # 커맨드라인 인자에서 파일 이름 가져오기
-input_file = sys.argv[1] # movie.dat
-output_file = sys.argv[2] # movieoutput.txt
+input_file = sys.argv[1] 
+output_file = sys.argv[2] 
 
 # 장르별 영화 수를 저장할 사전 생성
-genre_dict = dict()
+genre_count = {}
 
 # 입력 파일 movie.dat 파일 열기
 with open(input_file, 'r', encoding='utf-8') as f:
@@ -21,12 +21,14 @@ with open(input_file, 'r', encoding='utf-8') as f:
         fields = line.split('::') # '::' 기준으로 쪼개기 → 3개 나오는 걸 확인
         genres = fields[-1].split('|') # 마지막 필드(장르 정보)를 '|'로 쪼개기
         for genre in genres: # 각 장르에 대하여
-            if genre in genre_dict: # 사전 안에 있다면
-                genre_dict[genre] += 1 # +1 해주기
+            genre = genre.strip() # 각 장르명에 있던 양쪽 공백 없애기
+            if genre in genre_count: # 사전 안에 있다면
+                genre_count[genre] += 1 # +1 해주기
             else:
-                genre_dict[genre] = 1 # 없다면 넣기
+                genre_count[genre] = 1 # 없다면 넣기
 
 # 결과를 출력 movieoutput.txt로 저장
 with open(output_file, 'w', encoding='utf-8') as f:
-    for genre, count in genre_dict.items():
-        f.write("%s %d" % (genre, count))
+    for genre, count in genre_count.items():
+        f.write("%s %d\n" % (genre, count)) # 달리진점 → 양쪽 공백을 없애면서 개행이 사라졌고 따로 개행 작업을 해주어야 했다.
+# 아마 \n를 함으로써 데이터들 사이의 분리가 발생한것이 아닐까 추측중....
